@@ -1,22 +1,17 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
+import React, { useEffect } from 'react';
+import LogoutButton from './components/logout';
+import NavBar from './components/navbar';
 function Home() {
+  useEffect(() => {
+    window.history.pushState({}, "", "/");
+  }, []);
+
   return (
-    <div id="content">
-      <div id="welcome-text">
-        <span id="text1">Welcome to Serenote.</span>
-        <span id="text2">App for notes and more.</span>
-        <span id="cursor">|</span>
-      </div>
-      <div className="buttons-container">
-        <Link to="/register">
-          <button className="create-button">Create an Account</button>
-        </Link>
-        <Link to="/login">
-          <button className="login-button">Log in</button>
-        </Link>
-      </div>
+    <div className="home">
+      <h1>Welcome to Our Website</h1>
+      <p>This is the homepage of our website. Feel free to explore and learn more about us.</p>
+      <LogoutButton />
+      <NavBar />
     </div>
   );
 }

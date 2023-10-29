@@ -1,0 +1,230 @@
+
+@media screen and (min-width: 836px) {
+
+html {
+  overflow: hidden;
+}
+#content {
+    background-color: #9eb9d4;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: 100vh;
+  }
+  
+  #welcome-text {
+    color: black;
+    text-align: center;
+    font-size: 24px;
+    padding: 10px;
+    position: absolute;
+    top: 35%;
+    left: 0;
+    right: 0;
+  }
+  
+  .buttons-container {
+    position: absolute;
+    bottom: 340px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: #9eb9d4;
+    right: 1%;
+  }
+  
+  .create-button {
+    background: linear-gradient(135deg, #FFC3A0, #FFAFBD);
+    border: none;
+    align-items: center;
+    padding: 10px;
+    width: 13%;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 20px;
+    animation: slideUp 1s forwards;
+  }
+  
+  .login-button {
+    border: 2px solid black;
+    align-items: center;
+    padding: 10px;
+    width: 13%;
+    background-color: #e7f7ff;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    animation: slideUp 0.97s forwards;
+  }
+  
+  
+  
+  
+
+
+
+
+  #cursor {
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+    animation: blink 2s steps(2, start) 5s infinite;
+  }
+  
+  @keyframes blink {
+    0% {
+      opacity: 0;
+      animation-timing-function: step-start;
+    }
+    50% {
+      opacity: 1;
+      animation-timing-function: step-start;
+    }
+    100% {
+      opacity: 0;
+      animation-timing-function: step-start;
+    }
+  }
+
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(1000%);
+   }
+    100% {
+      transform: translateY(1%);
+   }
+  }
+  
+
+  @keyframes typing {
+    from { opacity: 0; }
+    to { opacity: 1; }
+   }
+   
+   #text1, #text2 {
+    opacity: 0;
+    animation: typing 0.5s steps(1, end);
+   }
+   #welcome-text span {
+    white-space: pre-wrap;
+}
+}
+
+@media screen and (max-width: 835px) {
+
+  html {
+      overflow: hidden;
+    }
+
+#content {
+  background-color: #9eb9d4;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  height: 100vh;
+}
+
+#welcome-text {
+    color: black;
+    text-align: center;
+    font-size: 24px;
+    padding: 10px;
+    position: absolute;
+    top: 35%;
+    left: 0;
+    right: 0;
+}
+
+
+.buttons-container {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  background-color: #9eb9d4;
+}
+
+
+.create-button {
+    background: linear-gradient(135deg, #FFC3A0, #FFAFBD);
+    border:none;
+    align-items: center;
+    margin: 0;
+    padding: 10px;
+    width: 90%;
+    background-color: #e7f7ff;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    animation: slideUp 1s forwards;
+}
+.login-button{
+    border: 2px solid black;
+    align-items: center;
+    margin: 0;
+    padding: 10px;
+    width: 90%;
+    background-color: #e7f7ff;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    animation: slideUp 1s forwards;
+}
+
+
+
+#cursor {
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+    animation: blink 2s steps(2, start) 5s infinite;
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 0;
+      animation-timing-function: step-start;
+    }
+    50% {
+      opacity: 1;
+      animation-timing-function: step-start;
+    }
+    100% {
+      opacity: 0;
+      animation-timing-function: step-start;
+    }
+  }
+
+  @keyframes slideUp {
+      0% {
+        transform: translateY(1000%);
+     }
+      100% {
+        transform: translateY(1%);
+     }
+    }
+
+    @keyframes typing {
+      from { opacity: 0; }
+      to { opacity: 1; }
+     }
+     
+     #text1, #text2 {
+      opacity: 0;
+      animation: typing 0.5s steps(1, end);
+     }
+     #welcome-text span {
+      white-space: pre-wrap;
+  }
+}
