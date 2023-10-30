@@ -3,16 +3,14 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 const Register = () => {
     
-    const { loginWithRedirect, isAuthenticated } = useAuth0();
+    const { loginWithRedirect } = useAuth0();
 
   return (
-    !isAuthenticated && (
         <button className="create-button" onClick={() => loginWithRedirect({authorizationParams: {
             screen_hint: "signup",
           }})}>
             Create an Account
         </button>
-    )
   );
 };
 

@@ -1,4 +1,4 @@
-import { useEffect, React } from 'react';
+import { React } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Main from './Main';
 import Home from './Home';
@@ -10,11 +10,6 @@ function PrivateRoute({ element, isAuthenticated }) {
 
 function App() {
   const { isAuthenticated } = useAuth0();
-
-  useEffect(() => {
-    console.log('isAuthenticated:', isAuthenticated);
-  }, [isAuthenticated]);
-
   return (
     <Router>
       <Routes>

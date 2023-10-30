@@ -32,7 +32,6 @@ function Main() {
 
  const { isAuthenticated } = useAuth0();
 
-
  return (
   <div id="content">
     <div id="welcome-text">
