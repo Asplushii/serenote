@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import './main.css';
 import './index.css';
-import { useAuth0 } from '@auth0/auth0-react';
 import Login from "./components/login";
 import Register from "./components/register";
 
@@ -30,8 +28,6 @@ function Main() {
     type();
  }, []);
 
- const { isAuthenticated } = useAuth0();
-
  return (
   <div id="content">
     <div id="welcome-text">
@@ -39,12 +35,7 @@ function Main() {
       <span id="cursor">|</span>
     </div>
     <div className="buttons-container">
-      {!isAuthenticated ? (
         <><Register /><Login /></>
-      ) : (
-        <Link to="/home"> {}
-        </Link>
-      )}
     </div>
   </div>
 );

@@ -1,16 +1,15 @@
-import { React } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Main from './Main';
-import Home from './Home';
-import { useAuth0 } from '@auth0/auth0-react';
-
-function PrivateRoute({ element, isAuthenticated }) {
-  return isAuthenticated ? element : <Navigate to="/" />;
-}
-
+import Foryou from './Foryou'
+import Journal from './Journal'
+import Moodboards from './Moodboards'
+import PrivateRoute from './components/route';
+import Entry from './Entry'
 function App() {
-  const { isAuthenticated } = useAuth0();
-  return (
+ console.log('App is rendering...');
+
+ return (
     <Router>
       <Routes>
         <Route
@@ -18,16 +17,26 @@ function App() {
           element={<Main />}
         />
         <Route
-          path="/home"
-          element={<Home />}
+          path="/foryou"
+          element={<PrivateRoute element={<Foryou />} />}
         />
         <Route
-          path="/*"
-          element={<PrivateRoute isAuthenticated={isAuthenticated} element={<Navigate to="/home" />} />}
+          path="/journal"
+          element={<PrivateRoute element={<Journal />} />}
         />
+        <Route
+          path="/moodboards"
+          element={<PrivateRoute element={<Moodboards />} />}
+        />
+        <Route
+          path="/entry"
+          element={<PrivateRoute element={<Entry />} />}
+        />
+        <Route path="/entry/:entryId" element={<PrivateRoute element={<Entry />} />} />
+
       </Routes>
     </Router>
-  );
+ );
 }
 
 export default App;

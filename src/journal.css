@@ -1,0 +1,178 @@
+#button {
+  width: 13%;
+  background: white;
+  border: 2px solid black;
+  border-radius: 20px;
+  color: black;
+  padding: 8px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.scrollbox {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 290px;
+  white-space: nowrap;
+  padding: 2rem;
+
+}
+div::-webkit-scrollbar {
+  display: none;
+
+}
+.scrollbox-item {
+  display: inline-block;
+  position: relative;
+  right: 15px;
+  width: 170px; 
+  height: 260px; 
+  margin: 0 10px 0 0;
+  padding-right: 40px;
+  box-sizing: border-box;
+  vertical-align: top;
+  white-space: normal;
+  text-align: justify;
+  overflow: hidden;
+  border: none;
+  border-radius: 20px; 
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+}
+
+.entry {
+  text-align: center;
+  cursor: pointer;
+  padding: 13px 13px 15px 0px;
+  font-size: 13px;
+  background: none;
+  border: none;
+  margin: 0px 0px 0px 10px;
+  opacity: 0.8;
+
+}
+
+.title {
+  color: black;
+  background: none;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  padding-top: 153px;
+  padding-left: 13px;
+  opacity: 0.8;
+}
+
+a {
+text-decoration: none;
+}
+
+.memories   {
+color: black;
+background: none;
+top: 200px;
+font-size: 21px;
+cursor: pointer;
+overflow: hidden;
+border: none;
+font-weight:600;
+padding: 0px 0px 2px 0px;
+}
+
+.memo {
+padding: 20px 20px 0px 20px;
+display: flex;
+flex-direction: column;
+text-align: left;
+}
+
+#scrollbox-create::before {
+content: ""; 
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(to bottom right, powderblue, lightyellow, lightcoral);
+
+}
+
+#scrollbox-create {
+position: relative; 
+}
+
+.continue-button {
+
+background-color: powderblue;
+border-radius: 50px;
+padding: 0px 0px 0px 0px;
+margin: 70px 0px 0px 0px;
+width: 100px;
+height: 20px;
+text-align: center;
+justify-content: center;
+border: none;
+
+}
+
+.create-entry {
+padding: 110px 0px 0px 0px;
+opacity: 0.75;
+text-align: center;
+justify-content: center;
+font-weight: 600;
+
+}
+.scrollbox-item.button {
+display: inline-block;
+position: relative;
+width: 170px; 
+height: 260px; 
+margin: 0 10px 0 0;
+padding: 0px 0px 0px 0px;
+white-space: normal;
+text-align: center;
+display: inline-block;
+justify-content: center;
+border: none;
+border-radius: 20px; 
+overflow-x: hidden;
+overflow-y: hidden;
+text-decoration: none;
+
+}
+
+input[type=checkbox] {
+position: absolute;
+margin: 10px 0px 0px 147.2px;
+cursor: pointer;
+}
+input[type=checkbox]:before {
+content: "";
+border-radius: 20px;
+margin: -2px 0px 0px -2px;
+position: absolute;
+width: 16px;
+height: 16px;
+top: 0;
+left: 0;
+background-color: white;
+}
+input[type=checkbox]:checked:after {
+content: "";
+display: block;
+width: 5px;
+height: 5px;
+
+border-width: 2px;
+border-radius: 50%;
+background-color: var(--entry-color);
+border: 2px solid var(--entry-color);
+position: relative;
+top: 2px;
+left: 2px;
+}

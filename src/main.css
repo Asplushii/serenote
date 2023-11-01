@@ -30,7 +30,6 @@ html {
     width: 100%;
     flex-direction: column;
     align-items: center;
-    background-color: #9eb9d4;
     right: 1%;
   }
   
@@ -58,7 +57,7 @@ html {
     font-weight: bold;
     font-size: 18px;
     cursor: pointer;
-    animation: slideUp 0.97s forwards;
+    animation: slideUp 1s forwards;
   }
   
   
@@ -144,7 +143,7 @@ html {
 
 .buttons-container {
   position: absolute;
-  bottom: 10px;
+  bottom: 50px;
   width: 100%;
   flex-direction: column;
   align-items: center;

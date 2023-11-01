@@ -11,15 +11,15 @@ const root = document.getElementById('root');
 const reactRoot = createRoot(root);
 
 const authorizationParams = {
-  redirect_uri: window.location.origin + '/home',
+ redirect_uri: window.location.origin + '/foryou',
 };
 
 reactRoot.render(
-  <Auth0Provider
+ <Auth0Provider
     domain={domain} 
     clientId={clientId}
     authorizationParams={authorizationParams} 
-  >
+ >
     <App />
-  </Auth0Provider>
+ </Auth0Provider>
 );

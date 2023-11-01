@@ -1,19 +1,23 @@
 .bottom-navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #9eb9d4;
-    border-top: 2px solid black;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #9eb9d4;
+  border-top: 2px solid black;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
   
   .nav-item {
     text-align: center;
-    padding: 0 20px;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    padding: 0 10px;
   }
   
   .icon {
@@ -22,5 +26,11 @@
   
   .text {
     font-size: 14px;
+    margin-top: 8px;
+}
+
+  .icon32x32 {
+    width: 32px;
+    height: 32px;
   }
-  
+
