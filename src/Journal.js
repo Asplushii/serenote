@@ -94,6 +94,18 @@ function Journal() {
           </div>
             <button className="continue-button con-tinue">Continue</button>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
         {entries.slice().reverse().map((entry) => (
           <div
           key={entry._id}
@@ -106,15 +118,40 @@ function Journal() {
             backgroundImage: selectedEntries[entry._id]
             ? `linear-gradient(225deg, ${getDarkerColor(entry.color)} 0%, ${getDarkerColor(entry.color)} 12%, ${entry.color} 12%, ${entry.color} 100%)`
               : 'none',
-          }}
-        
-><input
+          }}>
+
+
+
+            
+  <input
       onClick={(e) => e.stopPropagation()}
       type="checkbox"
       checked={selectedEntries[entry._id] || false}
       onChange={() => handleEntrySelection(entry._id)}
       style={{ '--entry-color': `${getDarkerColor(entry.color)}` }}
     />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
               <button className='entry' style={{ textAlign: 'left' }}>
                 {entry.entryDate}
