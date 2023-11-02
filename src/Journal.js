@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import NavBar from './components/navbar';
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
+import axios from 'axios';
+import NavBar from './components/navbar';
 import './journal.css';
+
 
 function Journal() {
   const [entries, setEntries] = useState([]);
   const [selectedEntries, setSelectedEntries] = useState({});
   const { user } = useAuth0();
-  const userId = user?.sub;
+  const { sub: userId } = user || {};
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     window.history.pushState({}, "", "/");
@@ -35,8 +38,14 @@ function Journal() {
       [entryId]: !prevSelected[entryId],
     }));
   };
+  const goToEntry = () => {
+    navigate('/entry');
+  };
   
-
+  const goToEntryID = (entryId, entryColor) => {
+    navigate(`/entry/${entryId}?color=${encodeURIComponent(entryColor)}`);
+  };
+  
   const deleteSelectedEntries = async () => {
     const selectedEntryIds = Object.keys(selectedEntries).filter(
       (entryId) => selectedEntries[entryId]
@@ -75,25 +84,24 @@ function Journal() {
         <span className='memories'>Journal</span>
         <span className='small'>See your entries</span>
       </div>
-      <button id='button' onClick={deleteSelectedEntries}>
-        Delete Entries
-      </button>
       <NavBar />
 
       <div class="scrollbox">
-        <div className="scrollbox-item button" id="scrollbox-create">
+        
+        <div onClick={goToEntry} className="scrollbox-item button" id="scrollbox-create" style={{ border: '2px solid #8caca6'}}>
           <div className="create-entry">
             <span>Create new entry</span>
           </div>
-          <Link to="/entry">
-            <button className="entry continue-button">Continue</button>
-          </Link>
+            <button className="continue-button con-tinue">Continue</button>
         </div>
         {entries.slice().reverse().map((entry) => (
           <div
           key={entry._id}
+          onClick={() => goToEntryID(entry._id)}
           className="scrollbox-item"
           style={{
+            border: `2px solid ${getDarkerColor(entry.color)}`,
+            pointer: 'none',
             backgroundColor: entry.color,
             backgroundImage: selectedEntries[entry._id]
             ? `linear-gradient(225deg, ${getDarkerColor(entry.color)} 0%, ${getDarkerColor(entry.color)} 12%, ${entry.color} 12%, ${entry.color} 100%)`
@@ -101,13 +109,13 @@ function Journal() {
           }}
         
 ><input
+      onClick={(e) => e.stopPropagation()}
       type="checkbox"
       checked={selectedEntries[entry._id] || false}
       onChange={() => handleEntrySelection(entry._id)}
       style={{ '--entry-color': `${getDarkerColor(entry.color)}` }}
     />
 
-            <Link to={`/entry/${entry._id}`}>
               <button className='entry' style={{ textAlign: 'left' }}>
                 {entry.entryDate}
               </button>
@@ -130,15 +138,17 @@ function Journal() {
               >
                 {entry.title.includes(' ') ? entry.title : (entry.title.length >= 15 || /[ijltf]/i.test(entry.title.slice(0, 15)) ? entry.title.slice(0, 14) : entry.title)}
               </button>
-            </Link>
-            <div class="checkbox-container">
-  </div>
           </div>
         ))}
+      <div  onClick={deleteSelectedEntries}   className="scrollbox-item button" id="scrollbox-remove" style={{ border: '2px solid #d1abab'}}>
+      <div className="create-entry">
+        <span>Delete entries  </span>
       </div>
-      
+        <button className="continue-button remove-continue" >Continue</button>
     </div>
-  );
+  </div>
+</div>
+);
 }
 
 export default Journal;

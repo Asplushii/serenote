@@ -19,7 +19,6 @@
   text-decoration: none;
   color: black;
 }
-
 @media screen and (min-width: 836px) {
 #entry-textarea {
   flex: 1;
@@ -87,4 +86,5 @@
 .centered {
   display: flex;
   padding: 0px 0px 0px 0px;
+
 }

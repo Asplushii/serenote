@@ -14,6 +14,9 @@ function Entry() {
   const userId = user?.sub;
   const [titleError, setTitleError] = useState("");
   const [placeholder, setPlaceholder] = useState("Title"); 
+  const [entryColor, setEntryColor] = useState(""); 
+
+
 
   useEffect(() => {
     window.history.pushState({}, "", "/");
@@ -41,6 +44,7 @@ function Entry() {
       if (response.data) {
         setEntryTitle(response.data.title);
         setEntryText(response.data.text);
+        setEntryColor(response.data.color);
       } else {
         console.log("Entry not found for ID:", entryId);
       }
@@ -49,11 +53,14 @@ function Entry() {
     }
   }
 
+  const entryStyle = {
+    backgroundColor: entryColor,
+  };
   const handleSaveAndRedirect = async () => {
     try {
       if (!entryTitle.trim()) {
         setTitleError(titleError);
-        setPlaceholder("Title cannot be empty");
+        setPlaceholder("Cannot be empty");
 
         setTimeout(() => {
           setTitleError("");
@@ -105,18 +112,19 @@ function Entry() {
   };
 
   return (
-    <div id="entry">
+    <div id="entry" style={entryStyle}>
 
-      <div id="entry-header">
-        <button id="done" onClick={goBack}>
+      <div id="entry-header" style={entryStyle}>
+        <button id="done" onClick={goBack} style={entryStyle}>
         <img src={Arrow} alt="Arrow Icon" style={arrowImageStyle} /> All entries
         </button>
-        <div class='centered'>
+        <div class='centered' style={entryStyle}>
         <input
         type="text"
         class='inputs'
         className='titlebox'
         placeholder={placeholder}
+        style={entryStyle}
         value={entryTitle}
         onChange={(e) => {
           if (e.target.value.length <= 60) {
@@ -125,16 +133,17 @@ function Entry() {
         }}
       />
       </div>
-        <button id="done" onClick={handleSaveAndRedirect}>
+        <button id="done" onClick={handleSaveAndRedirect} style={entryStyle}>
           I'm done
         </button>
       </div>
       <div>
 
       </div>
-      <div id="entry-textarea">
+      <div id="entry-textarea" style={entryStyle}>
         <textarea
           value={entryText}
+          style={entryStyle}
           onChange={(e) => setEntryText(e.target.value)}
           placeholder="Start typing your entry here..."
         />
