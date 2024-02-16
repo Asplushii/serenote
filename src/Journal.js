@@ -21,7 +21,7 @@ function Journal() {
 
   const fetchEntries = async (userId) => {
     try {
-      const response = await axios.get(`https://5a83b1c4-15a1-4205-b116-5cb5c27af0f1-00-fvsc1ol4bfhx.worf.replit.dev/api/entries/${userId}`);
+      const response = await axios.get(`https://serenote.onrender.com/api/entries/${userId}`);
       if (response.data && response.data.entries) {
         setEntries(response.data.entries);
       } else {
@@ -57,7 +57,7 @@ function Journal() {
     }
 
     try {
-      const response = await axios.delete(`https://5a83b1c4-15a1-4205-b116-5cb5c27af0f1-00-fvsc1ol4bfhx.worf.replit.dev/api/entries`, {
+      const response = await axios.delete(`https://serenote.onrender.com/api/entries`, {
         data: { entryIds: selectedEntryIds },
       });
       if (response.status === 200) {
