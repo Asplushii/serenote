@@ -27,7 +27,6 @@ function Main() {
 
     type();
  }, []);
-
  return (
   <div id="content">
     <div id="welcome-text">
