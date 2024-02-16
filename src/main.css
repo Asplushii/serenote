@@ -152,7 +152,7 @@ html {
 
 
 .create-button {
-    top: 100px
+    top: 100px;
     background: linear-gradient(135deg, #FFC3A0, #FFAFBD);
     border:none;
     align-items: center;
@@ -168,7 +168,7 @@ html {
     animation: slideUp 1s forwards;
 }
 .login-button{
-    top: 100px
+    top: 100px;
     border: 2px solid black;
     align-items: center;
     margin: 0;
