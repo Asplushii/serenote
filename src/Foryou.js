@@ -7,6 +7,7 @@ function Foryou() {
 
   return (
     <div id="home">
+      <h1>Page in development</h1>
       <NavBar />
     </div>
   );
