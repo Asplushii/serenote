@@ -11,7 +11,7 @@ const root = document.getElementById('root');
 const reactRoot = createRoot(root);
 
 const authorizationParams = {
- redirect_uri: window.location.origin + '/foryou',
+ redirect_uri: 'https://serenote.vercel.app' + '/foryou',
 };
 
 reactRoot.render(
