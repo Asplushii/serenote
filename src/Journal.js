@@ -4,16 +4,21 @@ import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 import NavBar from './components/navbar';
 import './journal.css';
+
+
 function Journal() {
   const [entries, setEntries] = useState([]);
   const [selectedEntries, setSelectedEntries] = useState({});
   const { user } = useAuth0();
   const { sub: userId } = user || {};
   const navigate = useNavigate();
+
+
   useEffect(() => {
     window.history.pushState({}, "", "/");
     fetchEntries(userId);
   }, [userId]);
+
   const fetchEntries = async (userId) => {
     try {
       const response = await axios.get(`http://localhost:5000/api/entries/${userId}`);
@@ -26,6 +31,7 @@ function Journal() {
       console.error(error);
     }
   };
+
   const handleEntrySelection = (entryId) => {
     setSelectedEntries((prevSelected) => ({
       ...prevSelected,
@@ -35,17 +41,21 @@ function Journal() {
   const goToEntry = () => {
     navigate('/entry');
   };
+  
   const goToEntryID = (entryId, entryColor) => {
     navigate(`/entry/${entryId}?color=${encodeURIComponent(entryColor)}`);
   };
+  
   const deleteSelectedEntries = async () => {
     const selectedEntryIds = Object.keys(selectedEntries).filter(
       (entryId) => selectedEntries[entryId]
     );
+
     if (selectedEntryIds.length === 0) {
       alert("Please select entries to delete.");
       return;
     }
+
     try {
       const response = await axios.delete(`http://localhost:5000/api/entries`, {
         data: { entryIds: selectedEntryIds },
@@ -84,6 +94,18 @@ function Journal() {
           </div>
             <button className="continue-button con-tinue">Continue</button>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
         {entries.slice().reverse().map((entry) => (
           <div
           key={entry._id}
@@ -97,6 +119,10 @@ function Journal() {
             ? `linear-gradient(225deg, ${getDarkerColor(entry.color)} 0%, ${getDarkerColor(entry.color)} 12%, ${entry.color} 12%, ${entry.color} 100%)`
               : 'none',
           }}>
+
+
+
+            
   <input
       onClick={(e) => e.stopPropagation()}
       type="checkbox"
@@ -104,6 +130,29 @@ function Journal() {
       onChange={() => handleEntrySelection(entry._id)}
       style={{ '--entry-color': `${getDarkerColor(entry.color)}` }}
     />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
               <button className='entry' style={{ textAlign: 'left' }}>
                 {entry.entryDate}
               </button>
