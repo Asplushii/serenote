@@ -32,8 +32,6 @@ function App() {
           path="/entry"
           element={<PrivateRoute element={<Entry />} />}
         />
-        <Route path="/entry/:entryId" element={<PrivateRoute element={<Entry />} />} />
-
       </Routes>
     </Router>
  );
