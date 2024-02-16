@@ -39,7 +39,7 @@ function Entry() {
 
   const fetchEntry = async (entryId) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/entry/${entryId}`);
+      const response = await axios.get(`https://5a83b1c4-15a1-4205-b116-5cb5c27af0f1-00-fvsc1ol4bfhx.worf.replit.dev/api/entry/${entryId}`);
 
       if (response.data) {
         setEntryTitle(response.data.title);
@@ -74,7 +74,7 @@ function Entry() {
       setTitleError("");
 
       if (entryId) {
-        const response = await axios.put(`http://localhost:5000/api/entry/${entryId}`, {
+        const response = await axios.put(`https://5a83b1c4-15a1-4205-b116-5cb5c27af0f1-00-fvsc1ol4bfhx.worf.replit.dev/api/entry/${entryId}`, {
           title: entryTitle,
           text: entryText,
         });
@@ -84,7 +84,7 @@ function Entry() {
           console.log("Failed to update entry");
         }
       } else {
-        const response = await axios.post('http://localhost:5000/api/entries', {
+        const response = await axios.post('https://5a83b1c4-15a1-4205-b116-5cb5c27af0f1-00-fvsc1ol4bfhx.worf.replit.dev/api/entries', {
           title: entryTitle,
           text: entryText,
           userId: userId,
